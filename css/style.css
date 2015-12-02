@@ -1,0 +1,236 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lato', open-sans;
+}
+a {
+    transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+}
+#header {
+    width: 100%;
+    height: auto;
+    background: #333;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+#header  .row {
+    margin: 0px;
+    padding: 0px;
+}
+#header ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+#header li a {
+    padding: 20px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    float: left;
+}
+
+#header li .
+#header li a:hover {
+    background: #666;
+}
+
+
+/*Column Left*/
+#column-left {
+    width: 12%;
+    margin-left: 0;
+    position: fixed;
+    top: 60px;
+    left: 0%;
+    right: 0px;
+}
+.category, .category ul {
+    width: 12%;
+    height: 100%;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    background: #1b325f;
+    list-style-position: outside;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.category li a {
+    width: 100%;
+    height: 45px;
+    display: block;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px;
+    background: transparent;
+    text-decoration: none;
+}
+.category li a:hover {
+    background: #e7e7e7;
+    color: #000;
+}
+.category li a i {
+    padding-right: 15px;
+}
+
+/*Content*/
+#content {
+    width: 80%;
+    margin-left: 16%;
+    margin-top: 80px;
+}
+.content-heading {
+    width: 100%;
+    height: 45px;
+    margin: auto;
+    border-bottom: #414042 2px solid;
+}
+.content-heading a {
+    padding-top: 9px;
+    float: right;
+    text-decoration: none;
+    font-size: 14px;
+    color: #566271;
+}
+.content-heading a:hover {
+    color: #f15e59;
+    text-decoration: none;
+}
+.content-heading i {
+    padding-left: 15px;
+}
+.post {
+    width: 100%;
+    height: auto;
+    background: #fff;
+    margin-bottom: 35px;
+    padding: 20px;
+    box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.3);
+}
+.post a {
+    color: #414042;
+}
+.post a:hover {
+    color: #03b3c8;
+    text-decoration: none;
+}
+.post-content {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border: #e8e8e8 1px solid;
+    text-align: center;
+}
+.post img {
+    width: 90%;
+    height: 210px;
+    margin: 9px 8px 9px 8px;
+    background: #414042;
+    cursor: pointer;
+}
+
+.col-sm-3 img{
+    height: 410px;
+}
+
+.col-sm-4 img{
+    height: 600px;
+}
+
+
+.post-content button {
+    width: 90%;
+    height: 40px;
+    margin: 8px;
+    color: #fff;
+    border-radius: 2px;
+    background: #03b3c8;
+    border-style: none;
+}
+.post-content button i {
+    padding-left: 10px;
+}
+.post-content button:hover {
+    background: #566271;
+}
+.post-content:hover {
+    box-shadow: 1px 1px 12px 0px rgba(50, 50, 50, 0.3);
+}
+
+
+/*Login & Register*/
+.form {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    border: #cccccc 1px solid;
+}
+.form form {
+    width: 40%;
+    padding: 20px;
+}
+.form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    border: #5e5e5e 1px solid;
+}
+.form input[type=submit] {
+    margin-top: 20px;
+    border: none;
+    padding: 10px;
+    background: #1b325f;
+    color: #ffffff;
+}
+.form input[type=submit]:hover {
+    background: #204d74;
+    transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+}
+.form p {
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+/*Profil*/
+.profil {
+    width: 100%;
+    padding: 40px;
+    background: #f7f7f7;
+    border-radius: 4px;
+}
+.profil img {
+    width: 100px;
+    height: 100px;
+}
+
+#footer {
+    width: 88%;
+    margin-left: 12%;
+    margin-top: 50px;
+    background: #5e5e5e;
+    text-align: center;
+    color: #ffffff;
+    padding: 30px;
+}
+
+#content{
+    min-height: 617px;
+}
+
+#pagination{
+    width: 30%;
+    margin: 0 auto;
+}
