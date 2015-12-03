@@ -26,4 +26,16 @@ class Book extends Model
      * @var string
      */
     protected $primaryKey = 'BookID';
+
+    public $timestamps = false;
+
+    public function category()
+    {
+        return $this->belongsTo('app\Models\Category','CategoryID');
+    }
+
+    public function items()
+    {
+        return $this->hasMany('app\Models\Item','BookID');
+    }
 }
