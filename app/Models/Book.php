@@ -34,6 +34,11 @@ class Book extends Model
         return $this->belongsTo('app\Models\Category','CategoryID');
     }
 
+    public function publisher()
+    {
+        return $this->belongsTo('app\Models\Publisher','PublisherID');
+    }
+
     public function items()
     {
         return $this->hasMany('app\Models\Item','BookID');

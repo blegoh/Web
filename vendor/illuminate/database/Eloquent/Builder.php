@@ -236,7 +236,7 @@ class Builder
      * Get an array with the values of a given column.
      *
      * @param  string  $column
-     * @param  string  $key
+     * @param  string|null  $key
      * @return \Illuminate\Support\Collection
      */
     public function lists($column, $key = null)
@@ -724,14 +724,14 @@ class Builder
             $relationQuery->wheres, $relationQuery->getBindings()
         );
 
-        $this->query->mergeBindings($hasQuery->getQuery());
+        $this->query->addBinding($hasQuery->getQuery()->getBindings(), 'where');
     }
 
     /**
      * Get the "has relation" base query instance.
      *
      * @param  string  $relation
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return \Illuminate\Database\Eloquent\Relations\Relation
      */
     protected function getHasRelationQuery($relation)
     {

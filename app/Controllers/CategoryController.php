@@ -9,25 +9,34 @@
 namespace app\Controllers;
 
 
+use app\Core\Auth;
 use app\Core\Controller;
 use app\Models\Category;
 
 class CategoryController extends Controller
 {
+    private $petugas;
+
     function __construct()
     {
         parent::__construct();
+        if(Auth::petugas() == null){
+            header("Location: ".base."/Auth");
+        }else{
+            $this->petugas = Auth::petugas();
+        }
     }
 
     public function index(){
         $cat = Category::all();
         $this->view->render('admin/category',[
-            'categories' => $cat
+            'categories' => $cat,
+            'petugas' => $this->petugas
         ]);
     }
 
     public function add(){
-        $this->view->render('admin/add_category');
+        $this->view->render('admin/add_category',['petugas' => $this->petugas]);
     }
 
     public function prosesAdd(){
@@ -40,13 +49,23 @@ class CategoryController extends Controller
     public function edit($categoryID){
         $category = Category::find($categoryID);
         $this->view->render('admin/add_category',[
-            'category' => $category
+            'category' => $category,
+            'petugas' => $this->petugas
         ]);
     }
 
     public function prosesEdit($categoryID){
         $cat = Category::find($categoryID);
-        $cat->CategoryName = $_POST['name'];
+        $inserted = $_POST['name'];
+        $deleted = $cat->CategoryName;
+        $boleh = false;
+        for($i=0;$i<strlen($deleted);$i++){
+            if($deleted[$i] < $inserted[$i] ){
+                $boleh = true;
+                break;
+            }
+        }
+        $cat->CategoryName = ($boleh)?$inserted:$deleted;
         $cat->update();
         header("Location: ".base."/Category");
     }

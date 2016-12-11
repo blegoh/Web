@@ -9,17 +9,29 @@
 namespace app\Controllers;
 
 
+use app\Core\Auth;
 use app\Core\Controller;
+use app\Models\Book;
+use app\Models\Category;
 
 class HomeController extends Controller
 {
+
+    private $categories;
+
     function __construct(){
         parent::__construct();
-        $this->index();
+        $this->categories = Category::all();
     }
 
     function index(){
-        $this->view->render('home');
+        $terbaru = Book::orderBy('BookID','desc')->skip(0)->take(6)->get();
+        $data['categories'] = $this->categories;
+        $data['terbaru'] = $terbaru;
+        if(Auth::member() != null){
+            $data['member'] = Auth::member();
+        }
+        $this->view->render('home',$data);
         $this->view->data = "asu";
     }
 }

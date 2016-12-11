@@ -9,23 +9,36 @@
 namespace app\Controllers;
 
 
+use app\Core\Auth;
 use app\Core\Controller;
 use app\Models\Publisher;
 
 class PublisherController extends Controller
 {
+    public $petugas;
+
     public function __construct()
     {
         parent::__construct();
+        if(Auth::petugas() == null){
+            header("Location: ".base."/Auth");
+        }else{
+            $this->petugas = Auth::petugas();
+        }
     }
 
     public function index(){
         $publishers = Publisher::all();
-        $this->view->render('admin/publisher',['publishers' => $publishers]);
+        $this->view->render('admin/publisher',[
+            'publishers' => $publishers,
+            'petugas' => $this->petugas
+        ]);
     }
 
     public function add(){
-        $this->view->render('admin/add_publisher');
+        $this->view->render('admin/add_publisher',[
+            'petugas' => $this->petugas
+        ]);
     }
 
     public function prosesAdd(){
@@ -41,7 +54,8 @@ class PublisherController extends Controller
     public function edit($publisherID){
         $publisher = Publisher::find($publisherID);
         $this->view->render('admin/add_publisher',[
-            'publisher' => $publisher
+            'publisher' => $publisher,
+            'petugas' => $this->petugas
         ]);
     }
 

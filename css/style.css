@@ -234,3 +234,21 @@ a {
     width: 30%;
     margin: 0 auto;
 }
+
+.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    width: 90%;
+    height: 40px;
+    margin: 8px;
+    color: #fff;
+    border-radius: 2px;
+    background: #03b3c8;
+    border-style: none;
+}
+
+.button:hover {
+    background: #566271;
+}

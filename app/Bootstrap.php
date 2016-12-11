@@ -7,7 +7,7 @@
  * Time: 0:52
  */
 require_once __DIR__ . '/../vendor/autoload.php';
-define('base','http://192.168.185.13/limsmvc');
+define('base','http://localhost/limsmvc');
 
 class Bootstrap
 {
@@ -20,6 +20,7 @@ class Bootstrap
         $file = 'app/Controllers/'.$url[0].'Controller.php';
         if(empty($url[0])){
             $controller = new \app\Controllers\HomeController();
+            $controller->index();
             return false;
         }
 
@@ -28,7 +29,11 @@ class Bootstrap
             $controller = new $a;
             if(isset($url[1])){
                 if(isset($url[2])){
-                    $controller->{$url[1]}($url[2]);
+                    if(isset($url[3])){
+                        $controller->{$url[1]}($url[2],$url[3]);
+                    }else{
+                        $controller->{$url[1]}($url[2]);
+                    }
                 }else{
                     $controller->{$url[1]}();
                 }

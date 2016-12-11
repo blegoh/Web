@@ -11,7 +11,7 @@
                     <h1>Add Book</h1>
                 </div>
                 <div class="col-md-12">
-                    <form class="form-horizontal" role="form" action="<?=base?>/Book/<?=(isset($book))?"prosesEdit/$book->BookID":"prosesAdd"?>" method="post">
+                    <form class="form-horizontal" enctype="multipart/form-data" role="form" action="<?=base?>/Book/<?=(isset($book))?"prosesEdit/$book->BookID":"prosesAdd"?>" method="post">
                         <div class="form-group">
                             <div class="col-sm-2">
                                 <label for="inputEmail3" class="control-label">Judul</label>

@@ -14,6 +14,17 @@
                 <li>
                     <a href="#">Home</a>
                 </li>
+                <li>
+                    <a class="dropdown-toggle" data-toggle="dropdown">Transaction<span class="fa fa-caret-down"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="<?=base?>/Transaksi/peminjaman">Peminjaman</a>
+                        </li>
+                        <li>
+                            <a href="<?=base?>/Transaksi/pengembalian">Pengembalian</a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="active">
                     <a href="<?=base?>/Book">Book</a>
                 </li>
@@ -24,13 +35,24 @@
                     <a href="<?=base?>/Category">Category</a>
                 </li>
                 <li>
-                    <a href="#">Member</a>
-                </li>
-                <li>
-                    <a class="dropdown-toggle" data-toggle="dropdown"> Namanya User <span class="fa fa-caret-down"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown">Member<span class="fa fa-caret-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li>
-                            <a href="#">Action</a>
+                            <a href="<?=base?>/Member/show/1">Active</a>
+                        </li>
+                        <li>
+                            <a href="<?=base?>/Member/show/0">Request</a>
+                        </li>
+                        <li>
+                            <a href="<?=base?>/Member/show/1/0">Non Active</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="dropdown-toggle" data-toggle="dropdown"> <?=$petugas->PetugasName?><span class="fa fa-caret-down"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="<?=base?>/Auth/logout">Logout</a>
                         </li>
                     </ul>
                 </li>

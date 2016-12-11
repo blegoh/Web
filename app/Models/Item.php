@@ -28,4 +28,9 @@ class Item extends Model
     protected $primaryKey = 'ItemID';
 
     public $timestamps = false;
+
+    public function book()
+    {
+        return $this->belongsTo('app\Models\Book','BookID');
+    }
 }
